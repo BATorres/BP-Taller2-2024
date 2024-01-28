@@ -1,0 +1,11 @@
+<div class="wrapped">
+    <h3>All books</h3>
+    <div class="book-container" >
+        <div class="book" *ngFor="let book of books">
+            <app-book-card 
+            [book]="book"
+            (sendBookToCart)="getBookId($event)">
+        </app-book-card>
+        </div>
+    </div>
+</div>

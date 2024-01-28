@@ -1,0 +1,17 @@
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    gap: 40px;
+}
+
+.book {
+    flex: 1 1 calc(25% - 40px);
+    max-width: calc(25% - 40px);
+    margin-top: 90px;
+}
+
+.wrapped {
+    padding: 60px;
+    padding-top: 20px;
+}

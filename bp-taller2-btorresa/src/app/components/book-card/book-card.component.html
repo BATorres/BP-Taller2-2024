@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="book-cover">
+        <img [src]="book.thumbnail" alt="">
+    </div>
+    <p class="price">
+        {{ book.price | currency }}
+    </p>
+    <p class="title">{{ book.title }}</p>
+    <p class="description">{{ book.description }}</p>
+    <p class="author">By {{ book.author }}</p>
+    <div class="add-button">
+        <button (click)="addBookToCart(book)">+ ADD TO CART</button>
+    </div>
+</div>

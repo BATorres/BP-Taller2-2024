@@ -1,0 +1,199 @@
+.wrapped {
+  padding: 60px;
+  padding-top: 20px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.card-container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 500px;
+
+  .table-container {
+    height: 92%;
+    overflow-y: auto;
+    position: relative;
+    width: 90%;
+
+    .cart-table {
+      background-color: transparent;
+      border-collapse: collapse;
+      width: 90%;
+
+      th,
+      td {
+        background-color: #ffffff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        color: #666666;
+        font-size: 14px;
+      }
+
+      .book-info {
+        position: relative;
+        width: 100px;
+
+        &__title,
+        &__remove {
+          background-color: transparent;
+          position: absolute;
+        }
+
+        &__title {
+          font-weight: bold;
+          text-align: left;
+          top: 10px;
+        }
+
+        &__remove {
+          bottom: 10px;
+
+          button {
+            background: none;
+            border: none;
+            color: #666666;
+            font-weight: bold;
+          }
+        }
+      }
+
+      td:first-child {
+        width: 150px;
+
+        img {
+          border-radius: 10px;
+          max-height: 150px;
+        }
+      }
+
+      .decrement,
+      .increment {
+        background: none;
+        border: none;
+        font-weight: bold;
+        font-size: 20px;
+        width: 100px;
+      }
+    }
+  }
+
+  .continue-button {
+    background: #ffffff;
+    height: 30px;
+    position: absolute;
+    top: 590px;
+    width: 80%;
+
+    a {
+      background: #ffffff;
+      color: #000000;
+      font-weight: bold;
+      margin: 20px;
+      text-decoration: none;
+    }
+  }
+
+  .total {
+    background-color: #000000;
+    color: #ffffff;
+    height: 500px;
+    margin-left: 70%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    right: 50px;
+    width: 20%;
+
+    &__item {
+      background: local;
+      display: flex;
+      font-size: 12px;
+      height: 20px;
+      justify-content: space-between;
+      margin: 10px;
+      margin-left: 30px;
+      margin-right: 30px;
+
+      .order-total {
+        background: local;
+        margin-top: -10px;
+        font-size: 16px;
+      }
+
+      .total-value {
+        background: local;
+        margin-top: -10px;
+        font-size: 16px;
+        text-decoration: underline;
+      }
+    }
+
+    hr {
+      background: local;
+      color: #666666;
+      margin: 20px;
+    }
+
+    form {
+      background-color: transparent;
+    }
+
+    .form {
+      background-color: #000000;
+      display: flex;
+      height: 10px;
+      flex-wrap: wrap;
+
+      &__item {
+        background-color: transparent;
+        flex: 0 0 auto;
+        margin-bottom: 10px;
+
+        input, button {
+          background-color: #000000;
+          border: 1px solid #666666;
+          border-radius: 5px;
+          color: #ffffff;
+          margin: 2px;
+        }
+
+        input {
+          width: 50%;
+        }
+
+        input.is-invalid {
+          border: 1px solid #f00 !important;
+        }
+
+        .invalid-feedback {
+          background-color: transparent;
+          width: 100%;
+          margin-top: 5px;
+          font-size: 87.5%;
+          color: #f00 !important;
+        }
+      }
+    }
+
+    .checkout-button {
+      border: none;
+      border-radius: 4px;
+      height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 25px;
+      margin-top: 100px;
+      position: absolute;
+      width: 80%;
+    }
+  }
+}

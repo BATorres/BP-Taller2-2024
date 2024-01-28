@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 10px;
+}
+
+.nav-left {
+  background-color: transparent;
+  display: flex;
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.nav-left a {
+  background-color: transparent;
+  color: #000000;
+  font-weight: bold;
+  margin-left: 50px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav-right {
+  background-color: transparent;
+  display: flex;
+}
+
+.nav-right a {
+  background-color: transparent;
+  color: #000000;
+  font-weight: bold;
+  margin-right: 50px;
+  text-decoration: none;
+}

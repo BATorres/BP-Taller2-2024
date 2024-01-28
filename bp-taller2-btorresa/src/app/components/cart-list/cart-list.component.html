@@ -1,0 +1,102 @@
+<div class="wrapped">
+  <h3>Shopping cart</h3>
+  <div class="card-container">
+    <div class="table-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th colspan="2"></th>
+            <th>QUANTITY</th>
+            <th>PRICE</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bookInCart of itemsInCart; let i = index">
+            <td>
+              <img [src]="bookInCart.thumbnail" alt="" />
+            </td>
+            <td class="book-info">
+              <div class="book-info__title">
+                {{ bookInCart.title }}
+              </div>
+              <div class="book-info__remove">
+                <button (click)="removeBook(bookInCart.id, i)">Remove</button>
+              </div>
+            </td>
+            <td>
+              <button class="decrement" (click)="decrease(bookInCart, i)">
+                -
+              </button>
+              {{ bookInCart.quantity }}
+              <button class="increment" (click)="increase(bookInCart, i)">
+                +
+              </button>
+            </td>
+            <td>
+              {{ bookInCart.price | currency }}
+            </td>
+            <td>{{ bookInCart.quantity * bookInCart.price | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="continue-button">
+      <a href="/">Continue shopping</a>
+    </div>
+    <div class="total">
+      <div class="total__item">
+        <h2>Order summary</h2>
+      </div>
+      <div class="total__item">
+        <p>Subtotal</p>
+        <p>{{ subtotal | currency }}</p>
+      </div>
+      <div class="total__item">
+        <p>Shipping</p>
+        <p>{{ shipping | currency }}</p>
+      </div>
+      <div class="total__item" *ngFor="let validCode of appliedCodes">
+        <p>Code {{ validCode?.name }}</p>
+        <p>- {{ validCode?.amount | currency }}</p>
+      </div>
+      <hr />
+      <div class="total__item">
+        <p class="order-total">Order Total</p>
+        <p class="total-value">{{ total | currency }}</p>
+      </div>
+      <div class="total__item">
+        <p>Promo code +</p>
+      </div>
+      <div class="total__item">
+        <form [formGroup]="promotionCodes" action="">
+          <div class="form" formArrayName="codes">
+            <div
+              class="form__item"
+              [formGroupName]="i"
+              *ngFor="let promotionalCode of codes.controls; let i = index"
+            >
+              <input
+                type="text"
+                formControlName="code"
+                placeholder="Enter your code"
+                [ngClass]="{
+                  'is-invalid': promotionalCode['controls'].applied.value && promotionalCode['controls'].code.errors
+                }"
+              />
+              <button (click)="validateCode(i)">APPLY</button>
+              <div
+                class="error"
+                *ngIf="promotionalCode['controls'].applied.value && promotionalCode['controls'].code.errors?.notInArray"
+                class="invalid-feedback"
+              >
+                Invalid code
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button class="checkout-button">CHECKOUT</button>
+    </div>
+  </div>
+</div>
